@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Document metadata - tells browser how to read this page -->
+    <meta charset="UTF-8">  <!-- Use UTF-8 character encoding (supports all languages) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Make page responsive on mobile -->
+    <title>Neva Fuller - Portfolio</title>  <!-- Title shown in browser tab -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">  <!-- Link to CSS styling file -->
+</head>
+<body>
+    <!-- ============================================
+         NAVIGATION BAR
+         ============================================
+         Sticky header that stays at top when scrolling.
+         Contains logo, menu links, and mobile hamburger icon.
+    -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <!-- Portfolio owner's name/logo -->
+            <div class="logo">Neva Fuller</div>
+            
+            <!-- Navigation menu - list of page sections to jump to -->
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#projects" class="nav-link">Portfolio</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+            </ul>
+            
+            <!-- Three-line hamburger menu icon for mobile (hidden on desktop) -->
+            <div class="hamburger">
+                <span></span>  <!-- Top line -->
+                <span></span>  <!-- Middle line -->
+                <span></span>  <!-- Bottom line -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HERO SECTION - Main Welcome Area
+         ============================================
+         Large, vibrant banner with portfolio owner's name,
+         design specialty, and call-to-action buttons.
+         Includes a personal portrait for a creative brand feel.
+    -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <!-- Left side: Text content -->
+            <div class="hero-text">
+                <p class="eyebrow">Aspiring Graphic Designer</p>
+                <h1>Hi, I'm Neva Fuller</h1>
+                <p class="tagline"></p>
+                
+                <div class="hero-buttons">
+                    <a href="#about" class="cta-button">About Me</a>
+                </div>
+                <ul class="hero-highlights">
+            
+                </ul>
+            </div>
+            
+            <!-- Right side: Profile image -->
+            <div class="hero-image">
+                <img src="img/me.png" alt="Profile Picture" class="profile-pic">  <!-- Your photo here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PROJECTS SECTION
+         ============================================
+         Display your work in a responsive grid of cards.
+         Each card shows: project image, title, description, and link.
+    -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Portfolio Gallery</h2>
+                        <!--  ‼️ ‼️ digital artworks ‼️ ‼️-->
+            <div class="gallery-section">
+                <div class="gallery-header">
+                    <h3>Digital Works</h3>
+                    <div class="gallery-controls">
+                        <button type="button" class="gallery-btn prev" aria-label="Scroll left">&#10094;</button>
+                        <button type="button" class="gallery-btn next" aria-label="Scroll right">&#10095;</button>
+                    </div>
+                </div>
+          
+                             <!--  ⭐️ ⭐️ ⭐️ ⭐️ STARTING SOONOVERLAY ⭐️ ⭐️ ⭐️ ⭐️-->
+                <div class="gallery-viewport">
+                    <div class="gallery-track">
+                      <article class="project-card gallery-card">
+                            <div class="project-image">
+                                <img src="img/digital/starting soon.PNG" alt="Starting soon overlay artwork" class="starting-soon-logo">
+                            </div>
+                            <h3>Starting Soon Overlay</h3>
+                            <p>Procreate</p>
+                            <p>Overlay art created for a Twitch streamer ShahSoTweaky's introduction screen.</p>
+                        </article>
+
+                        <!--  ⭐️ ⭐️ ⭐️ ⭐️ Ending SOON OVERLAY ⭐️ ⭐️ ⭐️ ⭐️-->
+                        <article class="project-card gallery-card ending-soon-card">
+                            <div class="project-image">
+                                <img src="img/digital/endingsoon.png" alt="Ending soon overlay artwork" class="ending-soon-logo">
+                            </div>
+                            <h3>Ending Soon Overlay</h3>
+                            <p>Procreate</p>
+                            <p>Overlay art created for a Twitch streamer ShahSoTweaky's Conclusion screen.</p>
+                        </article>
+
+                        <!--  ⭐️ ⭐️ ⭐️ ⭐️SST LOGO ⭐️ ⭐️ ⭐️ ⭐️-->
+                        <article class="project-card gallery-card">
+                            <div class="project-image">
+                                <img src="img/digital/SST_square.png" alt="SST logo artwork" class="sst-logo">
+                            </div>
+                            <h3>SST LOGO</h3>
+                            <p>Procreate</p>
+                            <p>Logo created for Twitch streamer ShahSoTweaky.</p>
+                        </article>
+                       
+
+                          <!--  ⭐️ ⭐️ ⭐️ ⭐️ KASH LOGO ⭐️ ⭐️ ⭐️ ⭐️-->
+                        <article class="project-card gallery-card" data-gallery="true" data-images="img/digital/KASH.png, img/digital/kashkoin.png, img/digital/kash2.png, img/digital/kash3.png, img/digital/kash4.png, img/digital/kash5.png">
+                            <div class="project-image">
+                                <img src="img/digital/KASH.png" alt="KASH logo artwork" class="kash-logo">
+                            </div>
+                            <h3>KASH LOGO</h3>
+                            <p>Procreate</p>
+                            <p>Logo designed for Twitch streamer AshAlk.</p>
+                            <button type="button" class="see-more-btn">See more</button>
+                        </article>
+                          <!--  ⭐️ ⭐️ ⭐️ ⭐️ FLIER ⭐️ ⭐️ ⭐️ ⭐️-->
+                        <article class="project-card gallery-card">
+                            <div class="project-image">
+                                <img src="img/digital/flier.png" alt="Digital portfolio concept artwork">
+                            </div>
+                            <h3>Flier</h3>
+                            <p>Canva</p>
+                            <p>Flier designed for a HPC Services.</p>
+                        </article>
+
+                        <!--  ⭐️ ⭐️ ⭐️ ⭐️ POSER SERIES ⭐️ ⭐️ ⭐️ ⭐️-->
+                        <article class="project-card gallery-card" data-gallery="true" data-images="img/digital/poster1.png, img/digital/poster2.png, img/digital/poster3.png">
+                            <div class="project-image">
+                                <img src="img/digital/poster1.png" alt="Digital portfolio concept artwork">
+                            </div>
+                            <h3>The Tiger Head</h3>
+                            <p>Adobe Illustrator</p>
+                            <p>I created a 3-part poster series dedicated to an artifact called The Tiger Head.</p>
+                            <button type="button" class="see-more-btn">See more</button>
+                        </article>
+
+                        <!--  ⭐️ ⭐️ ⭐️ ⭐️ MODE FOR HIRE ⭐️ ⭐️ ⭐️ ⭐️-->
+                        <article class="project-card gallery-card">
+                            <div class="project-image">
+                                <img src="img/digital/mod.png" alt="mod for hire">
+                            </div>
+                            <h3>Performance piece: Mod for hire Poster</h3>
+                            <p>Adobe Illustrator</p>
+                            <p>Mock social media post searching for a streamer to hire me as a moderator.</p>
+                        </article>
+
+
+                          <!--  ⭐️ ⭐️ ⭐️ ⭐️ ARABIC SPIDER ⭐️ ⭐️ ⭐️ ⭐️-->
+                        <article class="project-card gallery-card">
+                            <div class="project-image">
+                                <img src="img/digital/arabic.png" alt="arabic" class="arabic">
+                            </div>
+                            <h3>Arabic Spider</h3>
+                            <p>Procreate</p>
+                            <p>​Using Arabic calligraphy, I designed the shape of a spider.</p>
+                        </article>
+
+                            <!--  ⭐️ ⭐️ ⭐️ ⭐️ CUSTOMED NAMES⭐️ ⭐️ ⭐️ ⭐️-->
+                        <article class="project-card gallery-card" data-gallery="true" data-images="img/digital/ghost.png, img/digital/ghost2.png, img/digital/lanky.png, img/digital/joseph.png">
+                            <div class="project-image">
+                                <img src="img/digital/ghost.png" alt="ghost" class="ghost">
+                            </div>
+                            <h3>Customed Digital Name Designs</h3>
+                            <p>Procreate</p>
+                            <p>Personalized digital name designs for friends upon request</p>
+                            <button type="button" class="see-more-btn">See more</button>
+                        </article>
+
+                         <!--  ⭐️ ⭐️ ⭐️ ⭐️ extra digital works ⭐️ ⭐️ ⭐️ ⭐️-->
+                        <article class="project-card gallery-card" data-gallery="true" data-images="img/digital/p1.png, img/digital/p2.png, img/digital/s1.png, img/digital/s2.png">
+                            <div class="project-image">
+                                <img src="img/digital/p1.png" alt="extra" class="extra">
+                            </div>
+                            <h3>Extra Digital Works</h3>
+                            <p>Procreate</p>
+                            <p>More digital works like portraits and wallpapers.</p>
+                            <button type="button" class="see-more-btn">See more</button>
+                        </article>
+                    </div>
+                </div>
+            </div>
+                          <!--  ‼️ ‼️ DRAWINGS artworks ‼️ ‼️-->
+            <div class="gallery-section">
+                <div class="gallery-header">
+                    <h3>Drawings</h3>
+                    <div class="gallery-controls">
+                        <button type="button" class="gallery-btn prev" aria-label="Scroll left">&#10094;</button>
+                        <button type="button" class="gallery-btn next" aria-label="Scroll right">&#10095;</button>
+                    </div>
+                </div>
+
+                <div class="gallery-viewport">
+                    <div class="gallery-track">
+                        <article class="project-card gallery-card">
+                            <div class="project-image">
+                                <img src="img/drawings/lifesize.jpeg" alt="Lifesize Portrait" class="lifesize">
+                            </div>
+                            <h3>"Lifesize Self-Portrait", 2023</h3>
+                            <p>Watrercolor, Charcoal, 35in by 64in</p>
+                        </article>
+
+                        <article class="project-card gallery-card">
+                            <div class="project-image">
+                                <img src="img/drawings/color.jpeg" alt="Body, Representation, Color" class="color">
+                            </div>
+                            <h3>"Body, Representation, Color", 2023</h3>
+                            <p>Colored Pencil, 13.5in by 12in</p>
+                        </article>
+
+                        <article class="project-card gallery-card">
+                            <div class="project-image">
+                                <img src="img/drawings/drapery.jpeg" alt="Drapery Still-Life" class="drapery">
+                            </div>
+                            <h3>"Drapery Still-Life", 2023</h3>
+                            <p>Charcoal, 18in by 24in</p>
+                        </article>
+
+                        <article class="project-card gallery-card">
+                            <div class="project-image">
+                                <img src="img/drawings/bag.jpeg" alt="Paper Bag Still-Life" class="bag">
+                            </div>
+                            <h3>"Paper Bag Still-Life", 2023</h3>
+                            <p>Charcoal, 18in by 24in</p>
+                        </article>
+
+                        <article class="project-card gallery-card">
+                            <div class="project-image">
+                                <img src="img/drawings/metaphor.jpeg" alt="Still-Life as a Metaphor" class="metaphor">
+                            </div>
+                            <h3>"Still-Life as a Metaphor", 2023</h3>
+                            <p> Charcoal, Watercolor, 38in by 24in</p>
+                        </article>
+
+                        <article class="project-card gallery-card">
+                            <div class="project-image">
+                                <img src="img/drawings/skeleton.png" alt="Skeleton Still-Life" class="skeleton">
+                            </div>
+                            <h3>"Skeleton Still-Life", 2023</h3>
+                            <p>Charcoal, 19in by 24in</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+                             <!--  ‼️ ‼️ PAINTINGS artworks ‼️ ‼️-->
+            <div class="gallery-section paintings">
+                <div class="gallery-header">
+                    <h3>Paintings</h3>
+                    <div class="gallery-controls">
+                        <button type="button" class="gallery-btn prev" aria-label="Scroll left">&#10094;</button>
+                        <button type="button" class="gallery-btn next" aria-label="Scroll right">&#10095;</button>
+                    </div>
+                </div>
+
+                <div class="gallery-viewport">
+                    <div class="gallery-track">
+                        <article class="project-card gallery-card">
+                            <div class="project-image">
+                                <img src="img/paintings/portraitpainting.jpeg" alt="portraitpainting" class="portraitpainting">
+                            </div>
+                            <h3>"Accepting Myself, 2023"</h3>
+                            <p>Oil paint on a Wooden Panel</p>
+                        </article>
+
+                        <article class="project-card gallery-card">
+                            <div class="project-image">
+                                <img src="img/paintings/landscape1.jpeg" alt="Painted landscape artwork" class="landscape1">
+                            </div>
+                            <h3>"The Beauty at a Graveyard", 2023</h3>
+                            <p>Oil Paint on a Canvas</p>
+                        </article>
+
+                        <article class="project-card gallery-card">
+                            <div class="project-image">
+                                <img src="img/paintings/landscape2.jpeg" alt="Bernett woods" class="dog">
+                            </div>
+                            <h3>"Bernett Woods", 2023</h3>
+                            <p>Oil Paint on a Canvas.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ABOUT SECTION
+         ============================================
+         Tell visitors about your design background,
+         creative process, and core visual strengths.
+    -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                  <p> I'm a Fine Arts major at the University of Cincinnati, in the DAAP (Design, Architecture, Art, & Planning) program, pursuing a career in Graphic Design or any Art related feild. I create logos, fliers, stream overlays, and other digital art. </p>
+                    <p>Each piece is designed to feel intentional and full of personality. I also create drawings and paintings, bringing the same attention to detail and creativity to traditional media.</p>
+                    <p>Every piece I make is designed to communicate clearly and creatively, using color, composition, and typography.</p>
+          
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================
+         Simple footer at the bottom showing copyright info.
+    -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Neva Fuller.</p>  <!-- Copyright notice -->
+        </div>
+    </footer>
+
+    <!-- ============================================
+         ARTWORK MODAL
+         ============================================
+         Expanded view for individual artworks with
+         larger image display and description area.
+    -->
+    <div id="artworkModal" class="modal">
+        <div class="modal-content">
+            <!-- Close button -->
+            <button class="modal-close" aria-label="Close artwork view">&times;</button>
+            
+            <!-- Modal body: Large artwork image with previous/next navigation -->
+            <div class="modal-body">
+                <div class="modal-image-wrapper">
+                    <button class="modal-nav-btn modal-prev" aria-label="Previous image">&#10094;</button>
+                    <div class="modal-image-container">
+                        <img id="modalImage" src="" alt="Artwork" class="modal-image">
+                    </div>
+                    <button class="modal-nav-btn modal-next" aria-label="Next image">&#10095;</button>
+                </div>
+            </div>
+
+            <div class="modal-thumbnails-wrapper">
+                <div id="modalThumbnails" class="modal-thumbnails"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to JavaScript file for interactive features -->
+    <script src="script.js"></script>  <!-- Handles menu toggle, form submission, and animations -->
+</body>
+</html>

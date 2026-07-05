@@ -1,0 +1,948 @@
+/* ============================================
+   GENERAL STYLES & COLOR VARIABLES
+   ============================================
+   This section defines the core design system using CSS variables.
+   Modify these colors to change the entire portfolio theme at once.
+*/
+:root {
+    --primary-color: #ff4646;        /* Main accent color (red) used for buttons, links, borders */
+    --secondary-color: #490505;      /* Dark red used for gradients and hover states */
+    --dark-bg: #0f172a;              /* Very dark blue for footer and dark sections */
+    --light-bg: #f8fafc;             /* Light gray background for alternating sections */
+    --text-dark: #1e293b;            /* Dark gray for main body text */
+    --text-light: #64748b;           /* Medium gray for secondary text and descriptions */
+    --white: #ffffff;                /* Pure white for backgrounds and text */
+    --shadow: 0 4px 6px rgba(221, 29, 29, 0.1);        /* Subtle shadow for cards */
+    --shadow-lg: 0 10px 25px rgba(52, 15, 15, 0.15); /* Larger shadow for hover effects */
+}
+
+/* Reset default browser margins and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  /* Include padding and border in width/height calculations */
+}
+
+/* Enable smooth scrolling when clicking anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Base styles for entire page */
+body {
+    font-family: 'DM Sans', 'Segoe UI', sans-serif;  /* clean body font throughout */
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--white);
+}
+
+/* Center content container with max-width to prevent text from stretching too wide */
+.container {
+    max-width: 1200px;       /* Maximum width of content */
+    margin: 0 auto;          /* Center horizontally */
+    padding: 0 20px;         /* Add side padding on smaller screens */
+}
+
+/* Style all headings with bold font weight */
+h1, h2 {
+    font-weight: 700;
+    margin-bottom: 16px;
+    font-family: 'Playfair Display', Georgia, serif;  /* elegant serif for main headings */
+}
+
+h3 {
+    font-weight: 700;
+    margin-bottom: 16px;
+    font-family: 'Josefin Sans', sans-serif;  /* sleek and artistic for card titles */
+}
+
+/* Large section headings with gradient text effect */
+h2 {
+    font-size: 40px;       /* Extra large text for section titles */
+    text-align: center;      /* Center all section headings */
+    margin-bottom: 48px;     /* Extra space below section titles */
+    /* Create a gradient color from red to dark red */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;         /* Clip gradient to text shape (webkit browsers) */
+    -webkit-text-fill-color: transparent;  /* Make text transparent to show gradient */
+    background-clip: text;                 /* Standard syntax for gradient text */
+}
+
+/* ============================================
+   NAVIGATION BAR
+   ============================================
+   The navigation bar stays at the top when scrolling (sticky).
+   On mobile devices, it transforms into a hamburger menu.
+*/
+
+/* Main navigation container - stays at top of page */
+.navbar {
+    background-color: var(--white);  /* White background for contrast */
+    box-shadow: var(--shadow);       /* Subtle shadow to define the bar */
+    position: sticky;                /* Sticks to top when scrolling */
+    top: 0;
+    z-index: 100;                    /* Ensures navbar stays above other content */
+}
+
+/* Inner container for navbar - space out logo, menu, and hamburger */
+.nav-container {
+    display: flex;                   /* Horizontal layout */
+    justify-content: space-between;  /* Logo on left, menu in middle, hamburger on right */
+    align-items: center;             /* Vertically center items */
+    padding: 16px 0;                 /* Vertical space inside navbar */
+}
+
+/* Portfolio name/logo in navbar */
+.logo {
+    font-size: 24px;               /* Larger text for logo */
+    font-weight: 700;                /* Bold text */
+    /* Apply gradient color to logo (red to dark red) */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Navigation menu - list of page section links */
+.nav-menu {
+    display: flex;                   /* Arrange menu items horizontally */
+    list-style: none;                /* Remove bullet points */
+    gap: 32px;                       /* Space between menu items */
+}
+
+/* Individual navigation links */
+.nav-link {
+    text-decoration: none;           /* Remove underline from links */
+    color: var(--text-dark);         /* Dark text color */
+    font-weight: 500;                /* Medium font weight */
+    transition: color 0.3s ease;     /* Smooth color change animation */
+    position: relative;              /* Needed for underline animation */
+}
+
+/* Change link color on hover */
+.nav-link:hover {
+    color: var(--primary-color);     /* Turn red when hovering */
+}
+
+/* Create animated underline that appears on hover */
+.nav-link::after {
+    content: '';                     /* Empty element for underline decoration */
+    position: absolute;              /* Position relative to link */
+    bottom: -5px;                    /* Place below the text */
+    left: 0;
+    width: 0;                        /* Start with zero width */
+    height: 2px;                     /* Thin line */
+    /* Gradient underline from red to dark red */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    transition: width 0.3s ease;     /* Smooth width animation */
+}
+
+/* Expand underline when hovering over link */
+.nav-link:hover::after {
+    width: 100%;                     /* Expand to full width */
+}
+
+/* Hamburger menu (three lines) for mobile screens */
+.hamburger {
+    display: none;                   /* Hidden on desktop, shown on mobile */
+    flex-direction: column;          /* Stack the lines vertically */
+    cursor: pointer;                 /* Show it's clickable */
+}
+
+/* Each line of the hamburger menu */
+.hamburger span {
+    width: 25px;                     /* Width of each line */
+    height: 3px;                     /* Thickness of line */
+    background-color: var(--text-dark);  /* Dark color for visibility */
+    margin: 5px 0;                   /* Space between lines */
+    border-radius: 3px;              /* Slightly rounded corners */
+    transition: all 0.3s ease;       /* Smooth animation on click */
+}
+
+
+
+/* ============================================
+   HERO SECTION (Large Welcome Area)
+   ============================================
+   This is the first section visitors see - a large, colorful banner
+   with your name, tagline, and a call-to-action button.
+*/
+
+/* CSS for the main profile image in the hero section */
+
+/* Main hero container with gradient background */
+.hero {
+    position: relative;
+    background: linear-gradient(145deg, #f74747 0%, #701b1b 55%, #370909 100%);
+    color: var(--white);             /* White text for contrast */
+    padding: 50px 0;                 /* Vertical space inside hero */
+    display: flex;                   /* Enable flexbox layout */
+    align-items: center;             /* Vertically center content */
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -120px;
+    width: 420px;
+    height: 420px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -90px;
+    width: 320px;
+    height: 320px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 50%;
+}
+
+/* Two-column layout: text on left, image on right */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    display: grid;                   /* Use CSS Grid for layout */
+    grid-template-columns: minmax(0, 1.2fr) minmax(320px, 420px);  /* Text and image columns */
+    gap: 64px;                       /* Space between columns */
+    align-items: center;             /* Vertically center both columns */
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 24px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.hero-text h1 {
+    font-size: clamp(48px, 5vw, 72px);
+    margin-bottom: 16px;
+    line-height: 0.95;
+}
+
+.tagline {
+    font-size: 26px;
+    max-width: 680px;
+    margin-bottom: 24px;
+    opacity: 0.95;
+}
+
+.hero-description {
+    font-size: 17px;
+    margin-bottom: 32px;
+    opacity: 0.85;
+    max-width: 540px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 32px;
+    font-size: 20px;
+    color: rgb(255, 165, 165)
+}
+
+.cta-button {
+  color: rgb(252, 185, 185);
+  text-decoration: none;  
+}
+
+.cta-button:hover {
+    
+    color: var(--white);                /* text color when hovering */
+    text-decoration: underline;         /* underline appears on hover */
+}
+
+
+.hero-highlights {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    max-width: 520px;
+    margin-top: 16px;
+}
+
+.hero-highlights li {
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    color: rgba(255, 255, 255, 0.94);
+    font-weight: 600;
+}
+
+.hero-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 90%;
+    height: 90%;
+    border-radius: 40px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    pointer-events: none;
+}
+
+.profile-pic {
+    width: 100%;                     /* Fill container width */
+    max-width: 420px;                /* Don't get larger than 420px */
+    border-radius: 32px;             /* Rounded corners on image */
+    object-fit: cover;               /* Fill space while maintaining aspect ratio */
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);  /* Large shadow for depth */
+    border: 6px solid rgba(0, 0, 0, 0.12);
+}
+
+
+
+/* ============================================
+   ABOUT SECTION
+   ============================================
+   Tell visitors about yourself and list your main skills.
+   Uses a light background to create visual separation from Hero.
+*/
+
+.about {
+    padding: 96px 0;
+    background-color: #f8eaea;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.about-text p {
+    font-size: 18px;
+    margin-bottom: 24px;
+    color: var(--text-dark);
+    line-height: 1.8;
+    text-align: center;
+}
+
+.skills-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.skills-list li {
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+    border-radius: 18px;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: var(--shadow);
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+
+
+/* ============================================
+   PROJECTS SECTION
+   ============================================
+   Display your work in beautiful cards with images,
+   descriptions, and links to full project pages.
+*/
+
+/* Projects section container */
+.projects {
+    padding: 96px 0;
+}
+
+.gallery-section {
+    margin-bottom: 40px;
+}
+
+.gallery-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.gallery-header h3 {
+    font-size: 24px;
+    margin-bottom: 0;
+}
+
+.gallery-controls {
+    display: flex;
+    gap: 12px;
+}
+
+/* Hide controls (arrows) for the Paintings gallery temporarily */
+.gallery-section.paintings .gallery-controls {
+    display: none;
+}
+
+.gallery-btn {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.gallery-viewport {
+    overflow: hidden;
+}
+
+.gallery-track {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    padding: 8px 4px 16px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.gallery-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* Individual project card */
+.project-card {
+    background-color: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+    flex: 0 0 280px;
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-card {
+    scroll-snap-align: start;
+}
+
+/* Project card animation when hovering */
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* CSS for the artwork/flyer images inside each gallery card */
+.project-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f5f9;
+}
+
+/* Project image styling */
+.project-image img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* Zoom effect when hovering over project card */
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+/* Make KASH logo image larger */
+.kash-logo {
+    max-width: 160% !important;
+    max-height: 160% !important;
+}
+
+/* Make SST logo image larger */
+.sst-logo {
+    max-width: 140% !important;
+    max-height: 140% !important;
+}
+
+/* Make Starting Soon logo image larger */
+.starting-soon-logo {
+    
+}
+
+/* Project title inside card */
+.project-card h3 {
+    padding: 24px 24px 8px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: text-decoration 0.2s ease;
+}
+
+.project-card h3:hover {
+    text-decoration: underline;
+}
+
+/* Project description text */
+.project-card p {
+    padding: 0 24px 24px;
+    color: var(--text-light);
+    font-size: 15px;
+    text-align: center;
+}
+
+.see-more-btn {
+    margin: 0 24px 24px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--shadow);
+}
+
+.see-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+
+
+/* ============================================
+   CONTACT SECTION
+   ============================================
+   Contact form and social links to get in touch with you.
+   Two-column layout: form on left, social info on right.
+*/
+
+/* Contact section container */
+.contact {
+    padding: 96px 0;                 /* Vertical space */
+    background-color: var(--light-bg);  /* Light gray background */
+}
+
+/* Introductory text above contact form */
+.contact-intro {
+    text-align: center;              /* Center the text */
+    font-size: 19px;               /* Larger text */
+    color: var(--text-light);        /* Medium gray color */
+    margin-bottom: 48px;             /* Space before form */
+}
+
+/* Two-column layout for form and social links */
+.contact-content {
+    display: grid;                   /* Use grid layout */
+    grid-template-columns: 1fr 1fr;  /* Two equal columns */
+    gap: 48px;                       /* Space between columns */
+    max-width: 900px;                /* Maximum width */
+    margin: 0 auto;                  /* Center content */
+}
+
+/* Contact form styling */
+.contact-form {
+    display: flex;                   /* Vertical layout */
+    flex-direction: column;          /* Stack items vertically */
+    gap: 16px;                       /* Space between form fields */
+}
+
+/* Input fields and textarea styling */
+.contact-form input,
+.contact-form textarea {
+    padding: 16px;                   /* Space inside field */
+    border: 2px solid #e2e8f0;       /* Light gray border */
+    border-radius: 8px;              /* Rounded corners */
+    font-family: inherit;            /* Use same font as page */
+    font-size: 16px;                 /* Normal text size */
+    transition: border-color 0.3s ease;  /* Smooth border color change */
+}
+
+/* Border color change when focusing on form field */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;                   /* Remove default focus outline */
+    border-color: var(--primary-color);  /* Change border to red when focused */
+}
+
+/* Submit button styling */
+.submit-btn {
+    padding: 16px 32px;              /* Padding inside button */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));  /* Red gradient */
+    color: var(--white);             /* White text */
+    border: none;                    /* Remove default button border */
+    border-radius: 8px;              /* Rounded corners */
+    font-weight: 600;                /* Semi-bold text */
+    font-size: 16px;                 /* Normal text size */
+    cursor: pointer;                 /* Show it's clickable */
+    transition: all 0.3s ease;       /* Smooth animation */
+}
+
+/* Button animation when hovering */
+.submit-btn:hover {
+    transform: translateY(-2px);     /* Move up slightly */
+    box-shadow: var(--shadow-lg);    /* Add shadow for depth */
+}
+
+/* Heading in contact info section */
+.contact-info h3 {
+    margin-bottom: 24px;           /* Space below heading */
+}
+
+/* Social media links list */
+.social-links {
+    list-style: none;                /* Remove bullet points */
+    display: flex;                   /* Horizontal layout */
+    flex-direction: column;          /* Stack vertically instead */
+    gap: 16px;                       /* Space between links */
+}
+
+/* Social media link styling */
+.social-links a {
+    color: var(--primary-color);     /* Red text color */
+    text-decoration: none;           /* Remove underline */
+    font-weight: 600;                /* Semi-bold text */
+    transition: color 0.3s ease;     /* Smooth color change */
+}
+
+/* Social link color change on hover */
+.social-links a:hover {
+    color: var(--secondary-color);   /* Change to dark red on hover */
+}
+
+
+
+/* ============================================
+   FOOTER
+   ============================================
+   Simple footer at the bottom of the page.
+*/
+
+/* Footer container */
+.footer {
+    background-color: var(--dark-bg);    /* Very dark background */
+    color: var(--white);                 /* White text for contrast */
+    text-align: center;                  /* Center the text */
+    padding: 32px 0;                     /* Vertical space inside footer */
+}
+
+/* ============================================
+   ARTWORK MODAL
+   ============================================
+   Expanded view for individual artworks with
+   larger image display and description area.
+*/
+
+/* Modal backdrop - semi-transparent overlay */
+.modal {
+    display: none;                   /* Hidden by default */
+    position: fixed;                 /* Fixed position covering entire screen */
+    z-index: 1000;                   /* Above all other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent black */
+    animation: fadeIn 0.3s ease;     /* Fade in animation */
+}
+
+/* Show modal when active */
+.modal.active {
+    display: flex;                   /* Display as flexbox */
+    align-items: center;             /* Center vertically */
+    justify-content: center;         /* Center horizontally */
+}
+
+/* Modal container with content */
+.modal-content {
+    background-color: var(--white);  /* White background */
+    border-radius: 12px;             /* Rounded corners */
+    width: 95%;                      /* 95% of screen width */
+    max-width: 1400px;               /* Maximum width */
+    max-height: 90vh;                /* Maximum height (90% of viewport) */
+    padding: 40px;                   /* Padding inside modal */
+    position: relative;              /* For positioning close button */
+    overflow-y: auto;                /* Scrollable if content overflows */
+    animation: slideUp 0.3s ease;    /* Slide up animation */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);  /* Deep shadow */
+}
+
+/* Close button */
+.modal-close {
+    position: absolute;              /* Position at top right */
+    top: 16px;
+    right: 16px;
+    background: none;                /* No background */
+    border: none;                    /* No border */
+    font-size: 36px;                 /* Large X symbol */
+    cursor: pointer;                 /* Show it's clickable */
+    color: var(--text-dark);         /* Dark text color */
+    transition: color 0.3s ease;     /* Smooth color change */
+    z-index: 1001;                   /* Above modal content */
+}
+
+/* Close button hover effect */
+.modal-close:hover {
+    color: var(--primary-color);     /* Turn red on hover */
+}
+
+/* Modal body - centered layout */
+.modal-body {
+    display: flex;                   /* Flexbox layout */
+    align-items: center;             /* Center vertically */
+    justify-content: center;         /* Center horizontally */
+    margin-top: 0;                   /* No margin */
+}
+
+.modal-image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 16px;
+}
+
+.modal-nav-btn {
+    background: rgba(15, 23, 42, 0.75);
+    color: var(--white);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background 0.3s ease;
+}
+
+.modal-nav-btn:hover {
+    background: var(--primary-color);
+}
+
+/* Image container */
+.modal-image-container {
+    display: flex;                   /* Flexbox for centering */
+    align-items: center;             /* Center vertically */
+    justify-content: center;         /* Center horizontally */
+    width: 100%;                     /* Full width */
+    min-height: 500px;               /* Minimum height */
+}
+
+/* Large artwork image - centered and maximized */
+.modal-image {
+    max-width: 100%;                 /* Fit within container */
+    max-height: 75vh;                /* Maximum 75% of viewport height */
+    border-radius: 8px;              /* Rounded corners */
+    object-fit: contain;             /* Keep aspect ratio */
+    box-shadow: var(--shadow-lg);    /* Shadow effect */
+}
+
+/* Make the Ending Soon artwork use a larger preview */
+.modal-image.ending-soon-preview {
+    max-width: 100%; 
+    max-height: 75vh;
+}
+
+.modal-thumbnails-wrapper {
+    margin-top: 24px;
+}
+
+.modal-thumbnails {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.modal-thumbnail {
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    width: 84px;
+    height: 84px;
+    flex: 0 0 84px;
+    overflow: hidden;
+}
+
+.modal-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-thumbnail.active {
+    border-color: var(--primary-color);
+}
+
+
+
+/* Animation for modal fade in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;                  /* Start transparent */
+    }
+    to {
+        opacity: 1;                  /* End fully visible */
+    }
+}
+
+/* Animation for modal slide up */
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);  /* Start below */
+        opacity: 0;                  /* Start transparent */
+    }
+    to {
+        transform: translateY(0);    /* End in place */
+        opacity: 1;                  /* End fully visible */
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN (TABLET & SMALLER)
+   ============================================
+   Adjustments for screens 768px wide and smaller (tablets).
+   Hides desktop menu and shows hamburger icon instead.
+*/
+
+@media (max-width: 768px) {
+    /* Show hamburger menu on tablets */
+    .hamburger {
+        display: flex;                   /* Make hamburger visible */
+    }
+
+    /* Transform desktop menu into mobile dropdown */
+    .nav-menu {
+        position: absolute;              /* Position outside normal flow */
+        top: 70px;                       /* Position below navbar */
+        left: -100%;                     /* Start off-screen to the left */
+        flex-direction: column;          /* Stack menu items vertically */
+        background-color: var(--white);  /* White background */
+        width: 100%;                     /* Full screen width */
+        text-align: center;              /* Center menu items */
+        transition: 0.3s;                /* Smooth slide animation */
+        gap: 0;
+        padding: 32px 0;                 /* Vertical padding */
+    }
+
+    /* Show menu when active class is added by JavaScript */
+    .nav-menu.active {
+        left: 0;                         /* Slide in from left */
+    }
+
+    /* Convert hero two-column layout to single column */
+    .hero-content {
+        grid-template-columns: 1fr;      /* Single column */
+        gap: 32px;                       /* Less gap on mobile */
+        padding: 32px 0;                 /* Add vertical padding */
+    }
+
+    /* Reduce hero heading size for tablets */
+    .hero-text h1 {
+        font-size: 40px;               /* Smaller than desktop */
+    }
+
+    /* Reduce tagline size for tablets */
+    .hero-text .tagline {
+        font-size: 19px;               /* Smaller than desktop */
+    }
+
+    /* Reduce section heading size for tablets */
+    h2 {
+        font-size: 32px;                 /* Smaller than desktop */
+    }
+
+    .project-card {
+        flex-basis: min(80vw, 280px);
+    }
+
+    /* Convert contact two-column layout to single column */
+    .contact-content {
+        grid-template-columns: 1fr;      /* Single column */
+        gap: 32px;                       /* Less gap on mobile */
+    }
+
+    /* Modal layout adjustments for tablets */
+    .modal-content {
+        width: 95%;                      /* Wider on smaller screens */
+        padding: 24px;                   /* Less padding */
+    }
+
+    .modal-body {
+        grid-template-columns: 1fr;      /* Single column on tablets */
+        gap: 24px;                       /* Reduce gap */
+    }
+
+    .modal-image-container {
+        min-height: 300px;               /* Smaller minimum height */
+    }
+
+    .modal-image {
+        max-height: 400px;               /* Reduce max height */
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN (MOBILE - VERY SMALL)
+   ============================================
+   Adjustments for phones and very small screens (480px and smaller).
+*/
+
+@media (max-width: 480px) {
+    /* Very small hero heading for phones */
+    .hero-text h1 {
+        font-size: 32px;                 /* Much smaller than desktop */
+    }
+
+    /* Very small tagline for phones */
+    .hero-text .tagline {
+        font-size: 16px;                 /* Smaller than tablets */
+    }
+
+    /* Very small section headings for phones */
+    h2 {
+        font-size: 28px;              /* Smaller than tablets */
+        margin-bottom: 32px;             /* Reduce bottom margin */
+    }
+
+    /* Single column skills list on phones */
+    .skills-list {
+        grid-template-columns: 1fr;      /* Only one column */
+    }
+
+    /* Adjust hamburger menu position for phones */
+    .nav-menu {
+        top: 60px;                       /* Adjust position for smaller navbar */
+    }
+}
