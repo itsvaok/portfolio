@@ -156,8 +156,8 @@ function openArtworkModal(card) {
     document.body.style.overflow = 'hidden';
 }
 
-// Make every card clickable, but only cards with a gallery list will show multi-image controls
-const allCardButtons = document.querySelectorAll('.project-card');
+// Make every non-website card clickable, but only cards with a gallery list will show multi-image controls
+const allCardButtons = document.querySelectorAll('.project-card:not(.website-card)');
 allCardButtons.forEach((card) => {
     card.style.cursor = 'pointer';
     card.addEventListener('click', () => openArtworkModal(card));
